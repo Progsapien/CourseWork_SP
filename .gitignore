@@ -1,0 +1,6 @@
+Debug/*
+mp3dll/Debug/*
+playerInSharp/bin/*
+playerInSharp/obj/*
+
+*.suo
