@@ -37,33 +37,50 @@ namespace playerInSharp
         static public extern void runLoadFile(IntPtr player, IntPtr path);
 
         [DllImport("D:/mp3dll.dll", CallingConvention = CallingConvention.Cdecl)]
-        static public extern IntPtr runGet0(IntPtr player);
+        static public extern IntPtr runCurrentFile(IntPtr player);
         IntPtr player;
 
         private void Form1_Load(object sender, EventArgs e)
         {
             player = createPlayer();
-            IntPtr text = Marshal.StringToCoTaskMemAnsi("D:/1.mp3");
-            runLoadFile(player, text);
-            runLoadFile(player, Marshal.StringToCoTaskMemAnsi("D:/2.mp3"));
+
         }
 
         private void btn_play_Click(object sender, EventArgs e)
         {
-            IntPtr text;
-            text = runGet0(player);
-            btn_play.Text = Marshal.PtrToStringAnsi(text);
+           
             runPlay(player, 0);
+            IntPtr text;
+            text = runCurrentFile(player);
+            btn_play.Text = Marshal.PtrToStringAnsi(text);
         }
 
         private void btn_prev_Click(object sender, EventArgs e)
         {
-            runPrev(player);
+            if (music_list.SelectedIndex - 1 >= 0)
+            {
+                music_list.SelectedIndex--;
+            }
+            else
+            {
+                music_list.SelectedIndex = music_list.Items.Count - 1;
+            }
         }
 
         private void btn_next_Click(object sender, EventArgs e)
         {
-            runNext(player);
+            if (music_list.SelectedIndex + 1 < music_list.Items.Count)
+            {
+                music_list.SelectedIndex++;
+            }
+            else
+            {
+                music_list.SelectedIndex = 0;
+            }
+            /*runNext(player);
+            IntPtr text;
+            text = runCurrentFile(player);
+            btn_play.Text = Marshal.PtrToStringAnsi(text);*/
         }
 
         private void btn_stop_Click(object sender, EventArgs e)
@@ -73,7 +90,19 @@ namespace playerInSharp
 
         private void btn_open_Click(object sender, EventArgs e)
         {
-            // open files;
+
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                foreach(string path in openDialog.SafeFileNames) {
+                    runLoadFile(player, Marshal.StringToCoTaskMemAnsi(System.IO.Path.GetDirectoryName(openDialog.FileName)+"\\"+path));
+                    music_list.Items.Add(System.IO.Path.GetDirectoryName(openDialog.FileName) + "\\" + path);
+                }
+            }
+        }
+
+        private void music_list_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            runPlay(player, music_list.SelectedIndex);
         }
 
     }

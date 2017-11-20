@@ -21,8 +21,7 @@ void Player::next() {
 		current_position = 0;
 	}
 
-	mciSendStringA("stop mp3file", NULL, 0, NULL);
-	mciSendStringA("close mp3file", NULL, 0, NULL);
+	stop();
 
 	sprintf(current_command, "open %s alias mp3file", playlist->at(current_position));
 	mciSendStringA(current_command, NULL, 0, NULL);
@@ -36,8 +35,7 @@ void Player::prev() {
 		current_position = playlist->size()-1;
 	}
 
-	mciSendStringA("stop mp3file", NULL, 0, NULL);
-	mciSendStringA("close mp3file", NULL, 0, NULL);
+	stop();
 
 	sprintf(current_command, "open %s alias mp3file", playlist->at(current_position));
 	mciSendStringA(current_command, NULL, 0, NULL);
@@ -50,9 +48,13 @@ void Player::stop() {
 }
 
 void Player::play(int position) {
+
+	stop();
+	current_position = position;
 	sprintf(current_command, "open %s alias mp3file", playlist->at(position));
 	mciSendStringA(current_command, NULL, 0, NULL);
 	mciSendStringA("play mp3file", NULL, 0, NULL);
+
 }
 
 void Player::loadFile(string *path) {
@@ -60,6 +62,7 @@ void Player::loadFile(string *path) {
 	current_position = 0;
 }
 
-string* Player::get0() {
+
+string* Player::currentFile() {
 	return playlist->at(current_position);
 }

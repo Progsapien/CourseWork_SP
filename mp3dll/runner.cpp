@@ -24,6 +24,6 @@ void runLoadFile(Player* player, string *path) {
 	player->loadFile(path);
 }
 
-string* runGet0(Player* player) {
-	return player->get0();
+string* runCurrentFile(Player *player) {
+	return player->currentFile();
 }

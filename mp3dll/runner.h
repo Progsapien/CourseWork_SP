@@ -9,5 +9,5 @@ extern "C" {
 	EXPORT_FUNCTION void runStop(Player*);
 	EXPORT_FUNCTION void runPlay(Player*, int);
 	EXPORT_FUNCTION void runLoadFile(Player*, string*);
-	EXPORT_FUNCTION string* runGet0(Player*);
+	EXPORT_FUNCTION string* runCurrentFile(Player*);
 }

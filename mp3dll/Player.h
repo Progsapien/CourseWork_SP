@@ -15,7 +15,8 @@ public:
 	void next();
 	void prev();
 	void loadFile(string *path);
-	string* get0();
+	string* currentFile();
+
 
 private:
 	char *mciData;

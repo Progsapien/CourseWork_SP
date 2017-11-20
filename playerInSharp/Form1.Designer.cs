@@ -34,6 +34,7 @@
             this.btn_stop = new System.Windows.Forms.Button();
             this.btn_open = new System.Windows.Forms.Button();
             this.music_list = new System.Windows.Forms.ListBox();
+            this.openDialog = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // btn_prev
@@ -99,6 +100,13 @@
             this.music_list.Name = "music_list";
             this.music_list.Size = new System.Drawing.Size(519, 251);
             this.music_list.TabIndex = 5;
+            this.music_list.SelectedIndexChanged += new System.EventHandler(this.music_list_SelectedIndexChanged);
+            // 
+            // openDialog
+            // 
+            this.openDialog.FileName = "openDialog";
+            this.openDialog.Filter = "MP3 файлы (*.mp3)|*.mp3";
+            this.openDialog.Multiselect = true;
             // 
             // Form1
             // 
@@ -111,7 +119,7 @@
             this.Controls.Add(this.btn_stop);
             this.Controls.Add(this.btn_play);
             this.Controls.Add(this.btn_next);
-            this.MinimumSize = new System.Drawing.Size(0, 369);
+            this.MinimumSize = new System.Drawing.Size(570, 369);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -127,6 +135,7 @@
         private System.Windows.Forms.Button btn_open;
         private System.Windows.Forms.Button btn_stop;
         private System.Windows.Forms.ListBox music_list;
+        private System.Windows.Forms.OpenFileDialog openDialog;
     }
 }
 
