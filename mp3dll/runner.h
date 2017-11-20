@@ -10,4 +10,7 @@ extern "C" {
 	EXPORT_FUNCTION void runPlay(Player*, int);
 	EXPORT_FUNCTION void runLoadFile(Player*, string*);
 	EXPORT_FUNCTION string* runCurrentFile(Player*);
+	EXPORT_FUNCTION int* runCurrentPosition(Player*);
+	EXPORT_FUNCTION int* runLength(Player*);
+	EXPORT_FUNCTION void runSetCurrentPosition(Player*, string*);
 }

@@ -26,6 +26,9 @@ void Player::next() {
 	sprintf(current_command, "open %s alias mp3file", playlist->at(current_position));
 	mciSendStringA(current_command, NULL, 0, NULL);
 	mciSendStringA("play mp3file", NULL, 0, NULL);
+
+	ZeroMemory(current_command, sizeof(current_command));
+	current_command = new char[100];
 }
 
 void Player::prev() {
@@ -40,6 +43,9 @@ void Player::prev() {
 	sprintf(current_command, "open %s alias mp3file", playlist->at(current_position));
 	mciSendStringA(current_command, NULL, 0, NULL);
 	mciSendStringA("play mp3file", NULL, 0, NULL);
+
+	ZeroMemory(current_command, sizeof(current_command));
+	current_command = new char[100];
 }
 
 void Player::stop() {
@@ -54,6 +60,8 @@ void Player::play(int position) {
 	sprintf(current_command, "open %s alias mp3file", playlist->at(position));
 	mciSendStringA(current_command, NULL, 0, NULL);
 	mciSendStringA("play mp3file", NULL, 0, NULL);
+	ZeroMemory(current_command, sizeof(current_command));
+	current_command = new char[100];
 
 }
 
@@ -65,4 +73,28 @@ void Player::loadFile(string *path) {
 
 string* Player::currentFile() {
 	return playlist->at(current_position);
+}
+
+int* Player::currentPosition() {
+
+	mciSendStringA("status mp3file position",mciData,strlen(mciData),NULL);
+	int* played = new int(atoi(mciData));
+	ZeroMemory(mciData, sizeof(mciData));
+	mciData = new char[100];
+	return played;
+}
+
+int* Player::length() {
+	mciSendStringA("status mp3file length",mciData,strlen(mciData),NULL);
+	int *music_file_length = new int(atoi(mciData));
+	ZeroMemory(mciData, sizeof(mciData));
+	mciData = new char[100];
+	return music_file_length;
+}
+
+void Player::setCurrentPosition(string *position) {
+	sprintf(current_command, "play mp3file from %s", position);
+	mciSendStringA(current_command,NULL,0,NULL);
+	ZeroMemory(current_command, sizeof(current_command));
+	current_command = new char[100];
 }

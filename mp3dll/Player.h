@@ -16,6 +16,9 @@ public:
 	void prev();
 	void loadFile(string *path);
 	string* currentFile();
+	int* currentPosition();
+	int* length();
+	void setCurrentPosition(string *position);
 
 
 private:

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btn_prev = new System.Windows.Forms.Button();
             this.btn_play = new System.Windows.Forms.Button();
             this.btn_next = new System.Windows.Forms.Button();
@@ -35,6 +36,9 @@
             this.btn_open = new System.Windows.Forms.Button();
             this.music_list = new System.Windows.Forms.ListBox();
             this.openDialog = new System.Windows.Forms.OpenFileDialog();
+            this.track_music = new System.Windows.Forms.TrackBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.track_music)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_prev
@@ -98,7 +102,7 @@
             this.music_list.FormattingEnabled = true;
             this.music_list.Location = new System.Drawing.Point(17, 12);
             this.music_list.Name = "music_list";
-            this.music_list.Size = new System.Drawing.Size(519, 251);
+            this.music_list.Size = new System.Drawing.Size(519, 199);
             this.music_list.TabIndex = 5;
             this.music_list.SelectedIndexChanged += new System.EventHandler(this.music_list_SelectedIndexChanged);
             // 
@@ -108,11 +112,28 @@
             this.openDialog.Filter = "MP3 файлы (*.mp3)|*.mp3";
             this.openDialog.Multiselect = true;
             // 
+            // track_music
+            // 
+            this.track_music.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.track_music.Cursor = System.Windows.Forms.Cursors.Default;
+            this.track_music.Location = new System.Drawing.Point(17, 217);
+            this.track_music.Name = "track_music";
+            this.track_music.Size = new System.Drawing.Size(519, 45);
+            this.track_music.TabIndex = 6;
+            this.track_music.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.track_music.Scroll += new System.EventHandler(this.track_music_Scroll);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 331);
+            this.Controls.Add(this.track_music);
             this.Controls.Add(this.btn_prev);
             this.Controls.Add(this.music_list);
             this.Controls.Add(this.btn_open);
@@ -123,7 +144,9 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.track_music)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -136,6 +159,8 @@
         private System.Windows.Forms.Button btn_stop;
         private System.Windows.Forms.ListBox music_list;
         private System.Windows.Forms.OpenFileDialog openDialog;
+        private System.Windows.Forms.TrackBar track_music;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

@@ -38,6 +38,16 @@ namespace playerInSharp
 
         [DllImport("D:/mp3dll.dll", CallingConvention = CallingConvention.Cdecl)]
         static public extern IntPtr runCurrentFile(IntPtr player);
+
+        [DllImport("D:/mp3dll.dll", CallingConvention = CallingConvention.Cdecl)]
+        static public extern IntPtr runCurrentPosition(IntPtr player);
+
+        [DllImport("D:/mp3dll.dll", CallingConvention = CallingConvention.Cdecl)]
+        static public extern IntPtr runLength(IntPtr player);
+
+        [DllImport("D:/mp3dll.dll", CallingConvention = CallingConvention.Cdecl)]
+        static public extern void runSetCurrentPosition(IntPtr player, IntPtr position);
+
         IntPtr player;
 
         private void Form1_Load(object sender, EventArgs e)
@@ -48,11 +58,8 @@ namespace playerInSharp
 
         private void btn_play_Click(object sender, EventArgs e)
         {
-           
-            runPlay(player, 0);
-            IntPtr text;
-            text = runCurrentFile(player);
-            btn_play.Text = Marshal.PtrToStringAnsi(text);
+            runPlay(player, music_list.SelectedIndex);
+            timer1.Enabled = true;
         }
 
         private void btn_prev_Click(object sender, EventArgs e)
@@ -77,15 +84,13 @@ namespace playerInSharp
             {
                 music_list.SelectedIndex = 0;
             }
-            /*runNext(player);
-            IntPtr text;
-            text = runCurrentFile(player);
-            btn_play.Text = Marshal.PtrToStringAnsi(text);*/
         }
 
         private void btn_stop_Click(object sender, EventArgs e)
         {
+            timer1.Enabled = false;
             runStop(player);
+
         }
 
         private void btn_open_Click(object sender, EventArgs e)
@@ -103,6 +108,21 @@ namespace playerInSharp
         private void music_list_SelectedIndexChanged(object sender, EventArgs e)
         {
             runPlay(player, music_list.SelectedIndex);
+            track_music.Maximum = Marshal.ReadInt32(runLength(player));
+            timer1.Enabled = true;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            track_music.Value = Marshal.ReadInt32(runCurrentPosition(player));
+        }
+
+        private void track_music_Scroll(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            string value_str = Convert.ToString(track_music.Value);
+            runSetCurrentPosition(player, Marshal.StringToCoTaskMemAnsi(value_str));
+            timer1.Enabled = true;
         }
 
     }

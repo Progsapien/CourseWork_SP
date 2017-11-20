@@ -27,3 +27,15 @@ void runLoadFile(Player* player, string *path) {
 string* runCurrentFile(Player *player) {
 	return player->currentFile();
 }
+
+int* runCurrentPosition(Player *player) {
+	return player->currentPosition();
+}
+
+int* runLength(Player *player) {
+	return player->length();
+}
+
+void runSetCurrentPosition(Player *player, string *position) {
+	return player->setCurrentPosition(position);
+}
