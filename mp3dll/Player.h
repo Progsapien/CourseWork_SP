@@ -1,25 +1,26 @@
 #pragma once
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <conio.h>
-#include <io.h>
+#include <string>
+#include <vector>
 #include <Windows.h>
 
-#define PlayerDLL_API __declspec(dllexport) 
-
-
+using namespace std;
 class Player
 {
 public:
 	Player(void);
 	~Player(void);
 
-	void PlayerDLL_API play();
-	void PlayerDLL_API pause();
-	void PlayerDLL_API next();
-	void PlayerDLL_API prev();
+	void play(int position);
+	void stop();
+	void next();
+	void prev();
+	void loadFile(string *path);
+	string* get0();
+
 private:
 	char *mciData;
+	char *current_command;
+	int current_position;
+	vector<string*> *playlist;
 };
 

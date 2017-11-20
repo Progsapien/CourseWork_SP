@@ -28,77 +28,105 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.btn_prev = new System.Windows.Forms.Button();
+            this.btn_play = new System.Windows.Forms.Button();
+            this.btn_next = new System.Windows.Forms.Button();
+            this.btn_stop = new System.Windows.Forms.Button();
+            this.btn_open = new System.Windows.Forms.Button();
+            this.music_list = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // button1
+            // btn_prev
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(3, 269);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 40);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_prev.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_prev.Location = new System.Drawing.Point(17, 272);
+            this.btn_prev.Name = "btn_prev";
+            this.btn_prev.Size = new System.Drawing.Size(77, 40);
+            this.btn_prev.TabIndex = 0;
+            this.btn_prev.Text = "Пред.";
+            this.btn_prev.UseVisualStyleBackColor = true;
+            this.btn_prev.Click += new System.EventHandler(this.btn_prev_Click);
             // 
-            // button2
+            // btn_play
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(80, 269);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(331, 40);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_play.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_play.Location = new System.Drawing.Point(100, 272);
+            this.btn_play.Name = "btn_play";
+            this.btn_play.Size = new System.Drawing.Size(162, 40);
+            this.btn_play.TabIndex = 1;
+            this.btn_play.Text = "Играть";
+            this.btn_play.UseVisualStyleBackColor = true;
+            this.btn_play.Click += new System.EventHandler(this.btn_play_Click);
             // 
-            // button3
+            // btn_next
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(417, 269);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 40);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_next.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_next.Location = new System.Drawing.Point(268, 272);
+            this.btn_next.Name = "btn_next";
+            this.btn_next.Size = new System.Drawing.Size(77, 40);
+            this.btn_next.TabIndex = 2;
+            this.btn_next.Text = "След.";
+            this.btn_next.UseVisualStyleBackColor = true;
+            this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
             // 
-            // panel1
+            // btn_stop
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Location = new System.Drawing.Point(6, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(516, 312);
-            this.panel1.TabIndex = 3;
+            this.btn_stop.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_stop.Location = new System.Drawing.Point(351, 272);
+            this.btn_stop.Name = "btn_stop";
+            this.btn_stop.Size = new System.Drawing.Size(75, 40);
+            this.btn_stop.TabIndex = 3;
+            this.btn_stop.Text = "Стоп";
+            this.btn_stop.UseVisualStyleBackColor = true;
+            this.btn_stop.Click += new System.EventHandler(this.btn_stop_Click);
+            // 
+            // btn_open
+            // 
+            this.btn_open.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_open.Location = new System.Drawing.Point(432, 272);
+            this.btn_open.Name = "btn_open";
+            this.btn_open.Size = new System.Drawing.Size(104, 40);
+            this.btn_open.TabIndex = 4;
+            this.btn_open.Text = "Открыть";
+            this.btn_open.UseVisualStyleBackColor = true;
+            this.btn_open.Click += new System.EventHandler(this.btn_open_Click);
+            // 
+            // music_list
+            // 
+            this.music_list.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.music_list.FormattingEnabled = true;
+            this.music_list.Location = new System.Drawing.Point(17, 12);
+            this.music_list.Name = "music_list";
+            this.music_list.Size = new System.Drawing.Size(519, 251);
+            this.music_list.TabIndex = 5;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 328);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(554, 331);
+            this.Controls.Add(this.btn_prev);
+            this.Controls.Add(this.music_list);
+            this.Controls.Add(this.btn_open);
+            this.Controls.Add(this.btn_stop);
+            this.Controls.Add(this.btn_play);
+            this.Controls.Add(this.btn_next);
+            this.MinimumSize = new System.Drawing.Size(0, 369);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btn_prev;
+        private System.Windows.Forms.Button btn_play;
+        private System.Windows.Forms.Button btn_next;
+        private System.Windows.Forms.Button btn_open;
+        private System.Windows.Forms.Button btn_stop;
+        private System.Windows.Forms.ListBox music_list;
     }
 }
 

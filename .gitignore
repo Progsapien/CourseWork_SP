@@ -4,3 +4,4 @@ playerInSharp/bin/*
 playerInSharp/obj/*
 
 *.suo
+*.opensdf
