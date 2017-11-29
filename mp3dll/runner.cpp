@@ -39,3 +39,7 @@ int* runLength(Player *player) {
 void runSetCurrentPosition(Player *player, string *position) {
 	return player->setCurrentPosition(position);
 }
+
+int* runLastError(Player *player) {
+	return player->lastError();
+}

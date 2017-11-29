@@ -19,12 +19,16 @@ public:
 	int* currentPosition();
 	int* length();
 	void setCurrentPosition(string *position);
+	int* lastError();
+	void findError();
 
 
 private:
 	char *mciData;
 	char *current_command;
 	int current_position;
+	int result_execute_command;
+	int *last_error;
 	vector<string*> *playlist;
 };
 

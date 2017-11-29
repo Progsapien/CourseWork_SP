@@ -44,6 +44,8 @@
             // btn_prev
             // 
             this.btn_prev.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_prev.Enabled = false;
+            this.btn_prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_prev.Location = new System.Drawing.Point(17, 272);
             this.btn_prev.Name = "btn_prev";
             this.btn_prev.Size = new System.Drawing.Size(77, 40);
@@ -55,6 +57,8 @@
             // btn_play
             // 
             this.btn_play.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_play.Enabled = false;
+            this.btn_play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_play.Location = new System.Drawing.Point(100, 272);
             this.btn_play.Name = "btn_play";
             this.btn_play.Size = new System.Drawing.Size(162, 40);
@@ -66,6 +70,8 @@
             // btn_next
             // 
             this.btn_next.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_next.Enabled = false;
+            this.btn_next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_next.Location = new System.Drawing.Point(268, 272);
             this.btn_next.Name = "btn_next";
             this.btn_next.Size = new System.Drawing.Size(77, 40);
@@ -77,6 +83,8 @@
             // btn_stop
             // 
             this.btn_stop.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_stop.Enabled = false;
+            this.btn_stop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_stop.Location = new System.Drawing.Point(351, 272);
             this.btn_stop.Name = "btn_stop";
             this.btn_stop.Size = new System.Drawing.Size(75, 40);
@@ -88,6 +96,7 @@
             // btn_open
             // 
             this.btn_open.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_open.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_open.Location = new System.Drawing.Point(432, 272);
             this.btn_open.Name = "btn_open";
             this.btn_open.Size = new System.Drawing.Size(104, 40);
@@ -99,10 +108,11 @@
             // music_list
             // 
             this.music_list.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.music_list.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.music_list.FormattingEnabled = true;
             this.music_list.Location = new System.Drawing.Point(17, 12);
             this.music_list.Name = "music_list";
-            this.music_list.Size = new System.Drawing.Size(519, 199);
+            this.music_list.Size = new System.Drawing.Size(519, 197);
             this.music_list.TabIndex = 5;
             this.music_list.SelectedIndexChanged += new System.EventHandler(this.music_list_SelectedIndexChanged);
             // 
@@ -116,6 +126,7 @@
             // 
             this.track_music.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.track_music.Cursor = System.Windows.Forms.Cursors.Default;
+            this.track_music.Enabled = false;
             this.track_music.Location = new System.Drawing.Point(17, 217);
             this.track_music.Name = "track_music";
             this.track_music.Size = new System.Drawing.Size(519, 45);

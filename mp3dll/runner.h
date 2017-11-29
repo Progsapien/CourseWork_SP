@@ -13,4 +13,5 @@ extern "C" {
 	EXPORT_FUNCTION int* runCurrentPosition(Player*);
 	EXPORT_FUNCTION int* runLength(Player*);
 	EXPORT_FUNCTION void runSetCurrentPosition(Player*, string*);
+	EXPORT_FUNCTION int* runLastError(Player*);
 }
